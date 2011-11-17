@@ -20,22 +20,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions; {
 
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor blackColor]; // really should be default
     
     // set root controller as stack controller
-    ExampleMenuRootController *menuController = [[[ExampleMenuRootController alloc] init] autorelease];
-    self.stackController = [[[PSStackedViewController alloc] initWithRootViewController:menuController] autorelease];
+    ExampleMenuRootController *menuController = [[ExampleMenuRootController alloc] init];
+    self.stackController = [[PSStackedViewController alloc] initWithRootViewController:menuController];
     self.window.rootViewController = self.stackController;
     [self.window makeKeyAndVisible];
 
     return YES;
 }
 
-- (void)dealloc {
-    [_window release];
-    [super dealloc];
-}
 
 - (void)applicationWillResignActive:(UIApplication *)application; {
     /*
